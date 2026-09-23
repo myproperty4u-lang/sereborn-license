@@ -9,16 +9,39 @@ Welcome to the official repository for **SeReborn Gold**, a precision automated 
 > **DO NOT RUN THIS EA ON A STANDARD USD ACCOUNT.**
 > 
 > **Why Cent Account Only?**
-> The EA employs a multi-step recovery sequence starting from a base volume of `0.01 lot`. On a standard USD account, Gold pip fluctuations and larger recovery steps require massive equity to survive extended market swings. A Cent account converts small capital (e.g., $200 USD into 20,000 cents), providing the necessary buffer, leverage, and margin cushion for the strategy to execute safely without risk of margin call.
+> The EA utilizes an automated recovery cycle starting from a base volume of `0.01 lot`. On a standard USD account, Gold pip values and progressive recovery steps require massive equity to withstand market volatility. A Cent account converts small capital (e.g., $200 USD into 20,000 cents), providing the necessary margin cushion and leverage buffer for the strategy to execute safely without risk of a margin call.
+
+---
+
+## 📈 Trading Strategy & Operational Logic
+
+SeReborn Gold operates on an institutional-grade, disciplined trading framework designed specifically for the unique volatility of Gold:
+
+1. **100% Single-Entry Discipline (Zero Grid / No Averaging):**
+   - The EA never stacks, averages down, or opens multiple simultaneous trades.
+   - It maintains strictly **ONE active position at any given time**, ensuring margin levels remain healthy and eliminating prolonged catastrophic floating drawdowns.
+
+2. **Trend Momentum Follow-Through:**
+   - Every time a position hits its **Take Profit (TP)** target, the algorithm acknowledges market direction and immediately re-enters in the same trend direction using the minimum baseline volume (`0.01 lot`).
+
+3. **Smart Reverse Recovery Mechanism:**
+   - If an entry hits a **Stop Loss (SL)** due to sudden market shifts or false breakouts, the EA instantly initiates an intelligent counter-trend reversal.
+   - It activates an automated, non-linear progressive lot recovery sequence designed to clear the entire preceding loss series with a single successful TP touch, resetting the cycle cleanly back to baseline.
+
+4. **Stealth Target Execution (Anti Stop-Hunt):**
+   - The EA sends wide decoy stop and profit levels to the broker server while maintaining tight, precise internal stealth exits (`Real TP: 400 pips / Real SL: 300 pips`), shielding your execution targets from broker stop-hunting and spread widenings.
+
+5. **Disciplined Intraday Session Management:**
+   - Trading is synchronized strictly with high-liquidity market hours to avoid erratic overnight spreads and low-volume consolidation traps.
 
 ---
 
 ## ⚡ System Highlights
-- **100% Single Entry:** No grid, no layering, and no dangerous averaging. Only one active position at any given time.
-- **Smart Auto-Recovery Mechanism:** Automated recovery cycle designed to safely recover drawdown without loading account margin.
-- **Stealth Execution:** Real TP & SL targets are executed internally to prevent broker stop-hunting.
-- **Swap-Free Ready:** Zero overnight fee impact on holding positions over consecutive days.
-- **Disciplined Intraday Timing:** Active trading during high-liquidity market sessions only.
+- **Pair:** XAUUSD (Gold)
+- **Timeframe:** M15
+- **Style:** Disciplined Intraday / Single Entry
+- **Swap-Free Ready:** Zero overnight holding cost penalty
+- **Integrated Dashboard:** Real-time HUD tracking live spread, floating PnL, margin levels, and daily/weekly/monthly profit telemetry
 
 ---
 
